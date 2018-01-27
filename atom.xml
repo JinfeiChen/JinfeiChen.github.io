@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Kam Fly Chan</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-01-27T06:23:40.683Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Kam Fly Chan</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Manage your own code using cocoapods</title>
+    <link href="http://yoursite.com/2018/01/27/Manage-your-own-code-using-cocoapods/"/>
+    <id>http://yoursite.com/2018/01/27/Manage-your-own-code-using-cocoapods/</id>
+    <published>2018-01-27T06:11:44.000Z</published>
+    <updated>2018-01-27T06:23:40.683Z</updated>
+    
+    <content type="html"><![CDATA[<p>cocoapods管理自己的开源代码</p><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol><li>在Github创建共享仓库</li><li>把共享仓库clone到本地</li></ol><p><strong>命令： git clone &lt;版本库的网址&gt;</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone http://github.com/jquery/jquery.git</span><br></pre></td></tr></table></figure></p><h2 id="利用pod官方提供的模板来创建工程"><a href="#利用pod官方提供的模板来创建工程" class="headerlink" title="利用pod官方提供的模板来创建工程"></a>利用pod官方提供的模板来创建工程</h2><p><strong>命令： pod lib create 你的工程名</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git lib create CJFKit</span><br></pre></td></tr></table></figure></p><p>然后 - 把工程目录中的文件拷贝到之前cline到本地的仓库文件夹中<br>然后 - 设置好 podspec 文件</p><h2 id="检查当前的库是有错误"><a href="#检查当前的库是有错误" class="headerlink" title="检查当前的库是有错误"></a>检查当前的库是有错误</h2><p><strong>命令：pod lib lint</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod lib lint</span><br></pre></td></tr></table></figure></p><h2 id="将代码push到git共享仓库（当前库无误的情况下）"><a href="#将代码push到git共享仓库（当前库无误的情况下）" class="headerlink" title="将代码push到git共享仓库（当前库无误的情况下）"></a>将代码push到git共享仓库（当前库无误的情况下）</h2><p><strong>命令：git add .</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure></p><p><strong>命令： git commit -m “你的描述”</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;first 提交&quot;</span><br></pre></td></tr></table></figure></p><p><strong>命令： git push</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push</span><br></pre></td></tr></table></figure></p><p>为当前共享仓库的代码打一个tag</p><p><strong>命令：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git tag -a 1.0.0 -m &quot;your description&quot;</span><br><span class="line">$ git push --tag</span><br></pre></td></tr></table></figure></p><h2 id="把github共享仓库中的文件提交到pod仓库"><a href="#把github共享仓库中的文件提交到pod仓库" class="headerlink" title="把github共享仓库中的文件提交到pod仓库"></a>把github共享仓库中的文件提交到pod仓库</h2><p>如果是第一次提交到pod仓库或还没有注册个pod帐号的话，需要注册一个（<code>注册之后，会由到一封邮件，需要通过邮件进行激活</code>）</p><p><strong>命令： pod trunk register 邮箱地址 ‘用户名’ –verbose</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod trunk regiseter jinfei_chen@icloud.com &apos;JinfeiChen&apos; --verbose</span><br></pre></td></tr></table></figure></p><p>如果已经有pod帐号，可以通过如下命令查看自己的详细信息</p><p><strong>命令： pod trunk me</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod trunk me</span><br></pre></td></tr></table></figure></p><p>执行上传到Pod仓库的命令(此步骤有可能会上传失败，根据提示在百度都能找到解决的办法)</p><p><strong>命令：pod trunk push 你的仓库名.podspec</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod trunk push CJFKit.podspec</span><br></pre></td></tr></table></figure></p><h2 id="删除本地的cocoapods查找索引，才能search到最新的pod库"><a href="#删除本地的cocoapods查找索引，才能search到最新的pod库" class="headerlink" title="删除本地的cocoapods查找索引，才能search到最新的pod库"></a>删除本地的cocoapods查找索引，才能search到最新的pod库</h2><p><strong>命令：rm 本地cocoapods索引文件路径</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm ~/Library/Caches/CocoaPods/search_index.json</span><br></pre></td></tr></table></figure></p><p><strong>命令：pod search 你的工程名</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod search CJFKit</span><br></pre></td></tr></table></figure></p><h2 id="当pod库有更新，不能以同样的版本号上传到pod库"><a href="#当pod库有更新，不能以同样的版本号上传到pod库" class="headerlink" title="当pod库有更新，不能以同样的版本号上传到pod库"></a>当pod库有更新，不能以同样的版本号上传到pod库</h2><p><strong>命令：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git add.</span><br><span class="line">$ git commit -m &quot;更新描述&quot;</span><br><span class="line">$ git push</span><br><span class="line">$ git add.</span><br><span class="line">$ git tag -a 新的版本号 -m &quot;新版本说明&quot;</span><br><span class="line">$ git push --tag</span><br><span class="line">$ pod trunk push pod工程名.podspec</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;cocoapods管理自己的开源代码&lt;/p&gt;
+&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;在Github创建共享仓库&lt;/li&gt;
+&lt;li&gt;把共享仓库cl
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2018/01/27/hello-world/"/>
+    <id>http://yoursite.com/2018/01/27/hello-world/</id>
+    <published>2018-01-27T04:28:05.892Z</published>
+    <updated>2018-01-27T04:28:05.892Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
