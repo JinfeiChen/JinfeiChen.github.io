@@ -310,7 +310,36 @@
       
         
           
-            
+            <h1 id="cocoapods管理自己的开源代码"><a href="#cocoapods管理自己的开源代码" class="headerlink" title="cocoapods管理自己的开源代码"></a>cocoapods管理自己的开源代码</h1><p>一、 准备工作</p>
+<ol>
+<li>在Github创建共享仓库</li>
+<li>把共享仓库clone到本地</li>
+</ol>
+<h2 id="命令：-git-clone-lt-版本库的网址-gt"><a href="#命令：-git-clone-lt-版本库的网址-gt" class="headerlink" title="命令： git clone &lt;版本库的网址&gt;"></a>命令： git clone &lt;版本库的网址&gt;</h2><p>$ git clone <a href="http://github.com/jquery/jquery.git" target="_blank" rel="noopener">http://github.com/jquery/jquery.git</a></p>
+<p>二、 利用pod官方提供的模板来创建工程</p>
+<h2 id="命令：-pod-lib-create-你的工程名"><a href="#命令：-pod-lib-create-你的工程名" class="headerlink" title="命令： pod lib create 你的工程名"></a>命令： pod lib create 你的工程名</h2><p>$ git lib create CJFKit</p>
+<p>然后 - 把工程目录中的文件拷贝到之前cline到本地的仓库文件夹中<br>然后 - 设置好 podspec 文件</p>
+<p>三、检查当前的库是有错误</p>
+<h2 id="命令：pod-lib-lint"><a href="#命令：pod-lib-lint" class="headerlink" title="命令：pod lib lint"></a>命令：pod lib lint</h2><p>$ pod lib lint</p>
+<p>四、将代码push到git共享仓库（当前库无误的情况下）</p>
+<h2 id="命令：git-add"><a href="#命令：git-add" class="headerlink" title="命令：git add ."></a>命令：git add .</h2><p>$ git add .</p>
+<h2 id="命令：-git-commit-m-“你的描述”"><a href="#命令：-git-commit-m-“你的描述”" class="headerlink" title="命令： git commit -m “你的描述”"></a>命令： git commit -m “你的描述”</h2><p>$ git commit -m “first 提交”</p>
+<h2 id="命令：-git-push"><a href="#命令：-git-push" class="headerlink" title="命令： git push"></a>命令： git push</h2><p>$ git push</p>
+<p>为当前共享仓库的代码打一个tag</p>
+<h2 id="命令："><a href="#命令：" class="headerlink" title="命令："></a>命令：</h2><p>$ git add .<br>$ git tag -a 1.0.0 -m “your description”<br>$ git push –tag</p>
+<p>五、把github共享仓库中的文件提交到pod仓库</p>
+<p>如果是第一次提交到pod仓库或还没有注册个pod帐号的话，需要注册一个（<code>注册之后，会由到一封邮件，需要通过邮件进行激活</code>）</p>
+<h2 id="命令：-pod-trunk-register-邮箱地址-‘用户名’-–verbose"><a href="#命令：-pod-trunk-register-邮箱地址-‘用户名’-–verbose" class="headerlink" title="命令： pod trunk register 邮箱地址 ‘用户名’ –verbose"></a>命令： pod trunk register 邮箱地址 ‘用户名’ –verbose</h2><p>$ pod trunk regiseter jinfei_chen@icloud.com ‘JinfeiChen’ –verbose</p>
+<p>如果已经有pod帐号，可以通过如下命令查看自己的详细信息</p>
+<h2 id="命令：-pod-trunk-me"><a href="#命令：-pod-trunk-me" class="headerlink" title="命令： pod trunk me"></a>命令： pod trunk me</h2><p>$ pod trunk me</p>
+<p>执行上传到Pod仓库的命令(此步骤有可能会上传失败，根据提示在百度都能找到解决的办法)</p>
+<h2 id="命令：pod-trunk-push-你的仓库名-podspec"><a href="#命令：pod-trunk-push-你的仓库名-podspec" class="headerlink" title="命令：pod trunk push 你的仓库名.podspec"></a>命令：pod trunk push 你的仓库名.podspec</h2><p>$ pod trunk push CJFKit.podspec</p>
+<p>六、删除本地的cocoapods查找索引，才能search到最新的pod库</p>
+<h2 id="命令：rm-本地cocoapods索引文件路径"><a href="#命令：rm-本地cocoapods索引文件路径" class="headerlink" title="命令：rm 本地cocoapods索引文件路径"></a>命令：rm 本地cocoapods索引文件路径</h2><p>$ rm ~/Library/Caches/CocoaPods/search_index.json</p>
+<h2 id="命令：pod-search-你的工程名"><a href="#命令：pod-search-你的工程名" class="headerlink" title="命令：pod search 你的工程名"></a>命令：pod search 你的工程名</h2><p>$ pod search CJFKit</p>
+<p>七、当pod库有更新，不能以同样的版本号上传到pod库</p>
+<h2 id="命令：-1"><a href="#命令：-1" class="headerlink" title="命令："></a>命令：</h2><p>$ git add.<br>$ git commit -m “更新描述”<br>$ git push<br>$ git add.<br>$ git tag -a 新的版本号 -m “新版本说明”<br>$ git push –tag<br>$ pod trunk push pod工程名.podspec</p>
+
           
         
       
