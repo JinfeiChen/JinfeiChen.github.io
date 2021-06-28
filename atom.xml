@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-27T06:23:40.683Z</updated>
+  <updated>2021-06-28T07:30:37.164Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IPA_Enterprise_Distribution</title>
+    <link href="http://yoursite.com/2021/06/28/IPA-Enterprise-Distribution/"/>
+    <id>http://yoursite.com/2021/06/28/IPA-Enterprise-Distribution/</id>
+    <published>2021-06-28T07:17:19.000Z</published>
+    <updated>2021-06-28T07:30:37.164Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://" target="_blank" rel="noopener">点击下载APP</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;点击下载APP&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Manage your own code using cocoapods</title>
