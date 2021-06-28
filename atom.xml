@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-06-28T08:01:13.251Z</updated>
+  <updated>2021-06-28T08:09:10.269Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://yoursite.com/2021/06/28/IPA-Enterprise-Distribution/"/>
     <id>http://yoursite.com/2021/06/28/IPA-Enterprise-Distribution/</id>
     <published>2021-06-28T07:17:19.000Z</published>
-    <updated>2021-06-28T08:01:13.251Z</updated>
+    <updated>2021-06-28T08:09:10.269Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="itms-services://?action=download-manifest&amp;url=https://github.com/JinfeiChen/JinfeiChen.github.io/blame/master/ipa/manifest.plist" target="_blank" rel="noopener">点击下载APP</a></p>]]></content>
+    <content type="html"><![CDATA[<p><a href="itms-services://?action=download-manifest&amp;url=https://raw.githubusercontent.com/JinfeiChen/JinfeiChen.github.io/master/ipa/manifest.plist" target="_blank" rel="noopener">点击下载APP</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;itms-services://?action=download-manifest&amp;amp;url=https://github.com/JinfeiChen/JinfeiChen.github.io/blame/master/ipa/manifest.p
+        &lt;p&gt;&lt;a href=&quot;itms-services://?action=download-manifest&amp;amp;url=https://raw.githubusercontent.com/JinfeiChen/JinfeiChen.github.io/master/ipa/m
       
     
     </summary>
